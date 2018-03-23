@@ -12,16 +12,21 @@ import {Track} from '../Track/Track.js';
 export class TrackList extends React.Component {
 
   render() {
-    var myTracks = this.props.Tracks;
+
+    console.log('Processing tracklist: ' + this.props.listName);
 
     return (
       <div className="TrackList">
-        {(this.props.tracks === undefined) ? <h3>not found</h3>
-           : this.props.tracks.map( (element) => {
+        {/* Add a map method that renders a set of Track components*/}
+        {this.props.tracks.map( (element) => {
               //key = {element.id};
-              return <Track track={element} />;
+              return <Track track={element}
+                            key={element.id}
+                            isRemoval={this.props.isRemoval}
+                            onAdd={this.props.onAdd}
+                            onDelete={this.props.onDelete} />;
             })
-        }  {/* Add a map method that renders a set of Track components */}
+        }
       </div>
     );
   }
