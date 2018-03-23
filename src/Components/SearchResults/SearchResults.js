@@ -9,6 +9,10 @@ import './SearchResults.css';
 import {TrackList} from '../TrackList/TrackList.js';
 
 export class SearchResults extends React.Component {
+  constructor(props) {
+    super(props);
+
+  }
 
   render() {
     return (

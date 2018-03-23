@@ -14,12 +14,17 @@ export class Playlist extends React.Component {
     super(props);
 
     this.handleNameChange = this.handleNameChange.bind(this);
+    this.handleSavePlaylist = this.handleSavePlaylist.bind(this);
   }
 
   handleNameChange(element) {
     var passName = element.target.value;
     console.log('In handleNameChange, value: ' + passName);
     this.props.onNameChange(passName);
+  }
+
+  handleSavePlaylist() {
+    this.props.onSave();
   }
 
   render() {
@@ -32,7 +37,7 @@ export class Playlist extends React.Component {
                    onAdd={this.props.onAdd}
                    onDelete={this.props.onDelete}
                    listName='playlist' />
-        <a className="Playlist-save">SAVE TO SPOTIFY</a>
+        <a className="Playlist-save" onClick={this.handleSavePlaylist}>SAVE TO SPOTIFY</a>
       </div>
     );
   }
